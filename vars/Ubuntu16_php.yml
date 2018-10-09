@@ -3,7 +3,7 @@ required_libraries:
   - libcurl4-nss-dev
   - libcurl4-gnutls-dev
   - libcurl4-openssl-dev
-  - libpng3
+  - libpng-dev
   - libjpeg-dev
   - re2c
   - libxml2-dev
@@ -11,6 +11,9 @@ required_libraries:
   - libxslt-dev
   - libmcrypt-dev
   - libreadline-dev
+  - libssl-dev
+  - pkg-config
+  - openssl
 
 env_name: phpenv
 version: "{{ php_version }}"
