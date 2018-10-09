@@ -1,17 +1,23 @@
 ---
-- name: Set for path of pyenv
-  stat: path="{{ python_pyenv_install_dir }}/versions/{{ python_version | default('2.7.15') }}/bin/python"
-  register: pyenv_command_path
+- include_vars:
+    file: "{{ os_type }}_{{ env }}.yml"
+    name: env_vars
+
+- name: Set for path of language_command_path
+  stat: path="{{ anyenv_root | default('/opt/anyenv') }}/envs/{{ env_vars.env_name }}/versions/{{ env_vars.version }}/bin/{{ env }}"
+  register: language_command_path
 
 - block:
-  - name: install python
+  - name: install language
     become_user: root
-    shell: "pyenv install {{ python_version | default('2.7.15') }}"
+    shell: "{{ env_vars.env_name }} install {{ env_vars.version }}"
 
-  - name: pyenv global
-    shell: "pyenv global {{ python_version | default('2.7.15') }}"
+  - name: env global
+    shell: "{{ env_vars.env_name }} global {{ env_vars.version }}"
 
   environment:
-  - PATH: "{{ python_pyenv_install_dir }}/bin/:{{ lookup('env','PATH') }}"
-  - PYENV_ROOT: "{{ python_pyenv_install_dir }}"
-  when: pyenv_command_path.stat.exists == false
+  - PATH: "{{ anyenv_root | default('/opt/anyenv') }}/envs/{{ env_vars.env_name }}/bin/:{{ lookup('env','PATH') }}"
+  - PHPENV_ROOT: "{{ anyenv_root | default('/opt/anyenv') }}/envs/phpenv"
+  - PYENV_ROOT: "{{ anyenv_root | default('/opt/anyenv') }}/envs/pyenv"
+  - RBENV_ROOT: "{{ anyenv_root | default('/opt/anyenv') }}/envs/rbenv"
+  when: language_command_path.stat.exists == false
