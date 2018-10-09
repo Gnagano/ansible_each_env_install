@@ -9,4 +9,5 @@
 - include: prepare.yml env={{item}}
   with_items: "{{ install_envs }}"
 
-#- include: install.yml tags=pyenv_python
+- include: install.yml env={{item}}
+  with_items: "{{ install_envs }}"
