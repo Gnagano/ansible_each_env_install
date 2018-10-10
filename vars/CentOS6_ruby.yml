@@ -1,19 +1,9 @@
-python_required_libraries:
+required_libraries:
   - gcc
-  - gcc-c++
-  - make
-  - git
+  - libffi-devel # for 2.2.0
   - openssl-devel
-  - bzip2-devel
-  - zlib-devel
   - readline-devel
-  - sqlite-devel
-  - bzip2
-  - sqlite
   - zlib-devel
-  - bzip2
-  - bzip2-devel
-  - readline-devel
-  - sqlite
-  - sqlite-devel
-  - openssl-devel
+
+env_name: rbenv
+version: "{{ ruby_version }}"
