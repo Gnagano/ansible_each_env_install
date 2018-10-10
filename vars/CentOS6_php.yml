@@ -1,19 +1,22 @@
-python_required_libraries:
+required_libraries:
+  - bzip2-devel
+  - cmake
+  - curl-devel
+  - freetype-devel
   - gcc
   - gcc-c++
-  - make
   - git
+  - libicu-devel
+  - libjpeg-devel
+  - libmcrypt-devel
+  - libpng-devel
+  - libtidy-devel
+  - libxml2-devel
+  - libXpm-devel
+  - libxslt-devel
   - openssl-devel
-  - bzip2-devel
-  - zlib-devel
   - readline-devel
-  - sqlite-devel
-  - bzip2
-  - sqlite
-  - zlib-devel
-  - bzip2
-  - bzip2-devel
-  - readline-devel
-  - sqlite
-  - sqlite-devel
-  - openssl-devel
+  - re2c
+
+env_name: phpenv
+version: "{{ php_version }}"

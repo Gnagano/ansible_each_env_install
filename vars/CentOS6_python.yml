@@ -1,19 +1,15 @@
-python_required_libraries:
+required_libraries:
+  - bzip2
+  - bzip2-devel
   - gcc
   - gcc-c++
-  - make
   - git
+  - make
   - openssl-devel
-  - bzip2-devel
-  - zlib-devel
-  - readline-devel
-  - sqlite-devel
-  - bzip2
-  - sqlite
-  - zlib-devel
-  - bzip2
-  - bzip2-devel
   - readline-devel
   - sqlite
   - sqlite-devel
-  - openssl-devel
+  - zlib-devel
+
+env_name: pyenv
+version: "{{ python_version }}"
