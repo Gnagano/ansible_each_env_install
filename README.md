@@ -1,27 +1,38 @@
-# Ansible Role: Install python by pyenv
+# Ansible Role: On anyenv programming language install ( phpenv / pyenv / rbenv )
 
-Ansible Role: Install python by pyenv
+Ansible Role: Install php / ruby / python with anyenv
+
+## Getting started
+
+```
+$ ansible_galaxy install gano2018.ansible_each_env_install --roles-path <your_roles_directory>
+```
 
 ## Dependencies
-
-Before execute thie playbook, you should execute the playbooks below.
 
 - [gano2018.ansible_anyenv](https://github.com/gano2018/ansible_anyenv)
 
 ## Role Variables
 
-- python_pyenv_install_dir (defined at `defaults/main.yml`)
+- install_envs (defined at `defaults/main.yml`)
 
-  The variable `python_pyenv_install_dir` is where pyenv is installed.
-  The default value is `/opt/anyenv/envs/pyenv`.
+  You specified the languages you want to install like below.
+  Now you can specify only php,python,ruby.
 
-  The variable is define as `{{ anyenv_root | default '/opt/anyenv'}}//envs/pyenv`, so you only define `anyenv_root` if you want to change the default value.
+  ```
+  install_envs:
+    - php
+    - ruby
+    - python
+  ```
 
-- python_version (defined at `defaults/main.yml`)
+- php_version / ruby_version / php_version (defined at `defaults/main.yml`)
 
-  The variable `python_version` is the version you want to install.
-  The default value is `2.7.15`. If you do not define, version `2.7.15` will be installed.
+  The version you want to install. Specify like below.
+  Below example values are default value for each.
 
-- python_required_libraries (defined at `vars/*.yml`)
-
-  The libraries required to install python. The values are change by os type.
+  ```
+  php_version: 5.6.30
+  python_version: 2.7.15
+  ruby_version: 2.2.0
+  ```
