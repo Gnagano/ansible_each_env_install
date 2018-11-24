@@ -1,4 +1,7 @@
 required_libraries:
+  - autoconf
+  - bison
+  - libbz2-dev
   - libcurl4-gnutls-dev
   - libcurl4-nss-dev
   - libcurl4-openssl-dev
@@ -13,6 +16,7 @@ required_libraries:
   - openssl
   - pkg-config
   - re2c
+  - zlib1g-dev
 
 env_name: phpenv
 version: "{{ php_version }}"
